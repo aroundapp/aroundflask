@@ -10,6 +10,7 @@ application = Flask(__name__)
 application.config.update(dbconfig)
 application.config.update(globalconfig)
 
+from resources.apiindex import ApiIndex
 from resources.signup import Signup
 from resources.verifylogin import VerifyLogin
 from resources.uploadimage import UploadImage
@@ -18,6 +19,7 @@ from resources.posts import Posts
 from resources.like import Like
 
 api = Api(application)
+api.add_resource(ApiIndex, '/')
 api.add_resource(Signup, '/signup')
 api.add_resource(VerifyLogin, '/verifylogin')
 api.add_resource(UploadImage, '/uploadimage')
